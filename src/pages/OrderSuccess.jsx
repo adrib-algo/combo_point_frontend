@@ -67,7 +67,7 @@ export const OrderSuccess = () => {
 
             <div className="pt-4">
               <Link
-                to="/menu"
+                to="/"
                 className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider shadow-md transition-all"
               >
                 <ArrowLeft className="w-4 h-4" /> Return to Menu

@@ -36,8 +36,7 @@ export function App() {
           <CartProvider>
             <Routes>
               {/* Customer Routes */}
-              <Route path="/" element={<Navigate to="/menu" replace />} />
-              <Route path="/menu" element={<Menu />} />
+              <Route path="/" element={<Menu />} />
               <Route path="/about" element={<About />} />
               <Route path="/reviews" element={<Reviews />} />
               <Route path="/order-success" element={<OrderSuccess />} />
@@ -101,8 +100,8 @@ export function App() {
                 }
               />
 
-              {/* Catch all fallback to /menu */}
-              <Route path="*" element={<Navigate to="/menu" replace />} />
+              {/* Catch all fallback to / */}
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </CartProvider>
         </SettingsProvider>

@@ -27,7 +27,7 @@ export const Navbar = ({ onOpenCart }) => {
       )}
 
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link to="/menu" className="flex items-center gap-2 group">
+        <Link to="/" className="flex items-center gap-2 group">
           <div className="w-10 h-10 rounded-xl bg-orange-600 text-white flex items-center justify-center font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
             🍱
           </div>
@@ -44,9 +44,9 @@ export const Navbar = ({ onOpenCart }) => {
 
         <nav className="hidden md:flex items-center gap-1 font-medium text-sm text-slate-600">
           <Link
-            to="/menu"
+            to="/"
             className={"px-3.5 py-2 rounded-lg transition-colors flex items-center gap-1.5 " +
-              (isActive("/menu") ? "bg-orange-50 text-orange-600 font-semibold" : "hover:bg-slate-100 text-slate-700")
+              (isActive("/") ? "bg-orange-50 text-orange-600 font-semibold" : "hover:bg-slate-100 text-slate-700")
             }
           >
             <Utensils className="w-4 h-4" />
@@ -105,9 +105,9 @@ export const Navbar = ({ onOpenCart }) => {
 
       <div className="md:hidden flex items-center justify-around bg-slate-50 border-t border-slate-200 text-xs font-medium py-2 px-2">
         <Link
-          to="/menu"
+          to="/"
           className={"flex flex-col items-center gap-0.5 px-3 py-1 rounded-md " +
-            (isActive("/menu") ? "text-orange-600 font-bold" : "text-slate-600")
+            (isActive("/") ? "text-orange-600 font-bold" : "text-slate-600")
           }
         >
           <Utensils className="w-4 h-4" />
