@@ -8,15 +8,19 @@ export const SettingsProvider = ({ children }) => {
     freeTasteMode: true,
     deliveryTimeEnabled: false,
     acceptOrders: true,
-    storeStatus: "OPEN"
+    storeStatus: "OPEN",
+    mainOrderMode: "PRE-ORDER",
+    preOrderAdvanceHours: 24,
+    minimumPrepHours: 1,
+    freeTasteMaxPerPhone: 1
   });
 
   const [business, setBusiness] = useState({
     bannerUrl: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80",
     aboutText: "Combo Point offers delicious food combos and momos at New Barrackpore.",
     physicalLocation: "New Barrackpore, near Axis Bank, opposite Monda Mithai Store",
-    contactPhone: "+91 98765 43210",
-    contactEmail: "contact@combopoint.com",
+    contactPhone: "7439709997",
+    contactEmail: "combopointcafe@gmail.com",
     socialLinks: {}
   });
 
@@ -26,7 +30,7 @@ export const SettingsProvider = ({ children }) => {
     try {
       const res = await API.get("/settings");
       if (res.data.success && res.data.settings) {
-        setSettings(res.data.settings);
+        setSettings(prev => ({ ...prev, ...res.data.settings }));
       }
     } catch (err) {
       console.error("Error fetching settings:", err);
@@ -51,6 +55,13 @@ export const SettingsProvider = ({ children }) => {
       setLoading(false);
     };
     loadAll();
+
+    // Auto-poll settings every 10 seconds to reflect Admin live toggle changes instantly
+    const interval = setInterval(() => {
+      fetchSettings();
+    }, 10000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (

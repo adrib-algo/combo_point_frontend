@@ -14,11 +14,13 @@ import { OrderSuccess } from "./pages/OrderSuccess";
 import { Login } from "./pages/admin/Login";
 import { Dashboard } from "./pages/admin/Dashboard";
 import { Orders } from "./pages/admin/Orders";
+import { AdminFreeTaste } from "./pages/admin/AdminFreeTaste";
 import { OrderDetail } from "./pages/admin/OrderDetail";
 import { MenuManagement } from "./pages/admin/MenuManagement";
 import { ReviewManagement } from "./pages/admin/ReviewManagement";
 import { BusinessInfo } from "./pages/admin/BusinessInfo";
 import { Settings } from "./pages/admin/Settings";
+import { TokenVerification } from "./pages/admin/TokenVerification";
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -60,6 +62,14 @@ export function App() {
                 }
               />
               <Route
+                path="/admin/free-taste"
+                element={
+                  <ProtectedRoute>
+                    <AdminFreeTaste />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
                 path="/admin/orders/:id"
                 element={
                   <ProtectedRoute>
@@ -96,6 +106,14 @@ export function App() {
                 element={
                   <ProtectedRoute>
                     <Settings />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/verify-token"
+                element={
+                  <ProtectedRoute>
+                    <TokenVerification />
                   </ProtectedRoute>
                 }
               />

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { LayoutDashboard, ShoppingBag, Utensils, Star, Building, Settings, LogOut, ArrowLeft } from "lucide-react";
+import { LayoutDashboard, ShoppingBag, Utensils, Star, Building, Settings as SettingsIcon, LogOut, ArrowLeft, Gift, ShieldCheck } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
 
 export const AdminLayout = ({ children, title }) => {
@@ -14,12 +14,12 @@ export const AdminLayout = ({ children, title }) => {
   };
 
   const navItems = [
-    { label: "Dashboard", path: "/admin/dashboard", icon: LayoutDashboard },
-    { label: "Orders", path: "/admin/orders", icon: ShoppingBag },
-    { label: "Menu CRUD", path: "/admin/menu", icon: Utensils },
-    { label: "Review Moderation", path: "/admin/reviews", icon: Star },
-    { label: "Business Info", path: "/admin/business", icon: Building },
-    { label: "Settings", path: "/admin/settings", icon: Settings }
+    { label: "Overview", path: "/admin/dashboard", icon: LayoutDashboard },
+    { label: "Main Orders", path: "/admin/orders", icon: ShoppingBag },
+    { label: "Free Taste Requests", path: "/admin/free-taste", icon: Gift },
+    { label: "Menu Management", path: "/admin/menu", icon: Utensils },
+    { label: "Order Settings", path: "/admin/settings", icon: SettingsIcon },
+    { label: "Token Verification", path: "/admin/verify-token", icon: ShieldCheck }
   ];
 
   return (
@@ -29,10 +29,10 @@ export const AdminLayout = ({ children, title }) => {
         <div>
           <div className="p-5 border-b border-slate-800 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="text-2xl">??</span>
+              <span className="text-2xl">🍱</span>
               <div>
                 <h1 className="font-extrabold text-white text-base tracking-tight">COMBO POINT</h1>
-                <p className="text-[10px] text-orange-400 font-bold uppercase tracking-widest">Admin Dashboard</p>
+                <p className="text-[10px] text-orange-400 font-bold uppercase tracking-widest">Admin Portal</p>
               </div>
             </div>
           </div>
